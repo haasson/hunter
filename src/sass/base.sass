@@ -1,0 +1,133 @@
+*
+  -webkit-tap-highlight-color: transparent
+*,
+*:after,
+*:before
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  box-sizing: border-box
+
+//html
+//  font-size: 1px
+
+div, a
+  outline: none
+
+body
+  position: relative
+  min-width: 320px
+  min-height: 100vh
+  font-family: $main-font
+  font-size: 16px
+  line-height: 1.5
+  color: $main-text-color
+  overflow-x: hidden
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  box-sizing: border-box
+  opacity: 1
+  transform: none
+  transition: opacity 1s, transform .5s
+  //&.loading
+  //  opacity: 0
+  //  transform: translateY(15px)
+
+img
+  display: block
+  max-width: 100%
+  height: auto
+  -webkit-user-select: none
+  -moz-user-select: none
+  /*IE10*/
+  -ms-user-select: none
+  user-select: none
+  /*Android and not desktop browsers*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+video
+  outline: none
+
+a
+  text-decoration: none
+  color: $white
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+
+ul, ol
+  margin: 0
+  padding: 0
+  list-style: none
+
+button
+  border: none
+
+.nowrap
+  white-space: nowrap
+
+.icon
+  width: 20px
+  height: 20px
+
+.hide
+  display: none !important
+
+.slick-slide
+  outline: none
+
+.visibility-hidden
+  visibility: hidden
+
+.rel
+  position: relative
+  width: 100%
+  &-child
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+  &::before
+    display: block
+    content: ''
+  &_16-9::before
+    padding-top: 56.25%
+
+input::-ms-clear
+  display: none
+
+input[type="text"], textarea
+  -webkit-appearance: none
+  //-webkit-border-radius: 0
+  outline: none
+  cursor: text !important
+
+input[type="radio"] + label,
+input[type="checkbox"] + label
+  cursor: pointer !important
+
+input::-webkit-input-placeholder
+  color: $placeholder-color
+input::-moz-placeholder
+  color: $placeholder-color
+input:-moz-placeholder
+  color: $placeholder-color
+input:-ms-input-placeholder
+  color: $placeholder-color
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder
+  color: transparent
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder
+  color: transparent
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder
+  color: transparent
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder
+  color: transparent
+

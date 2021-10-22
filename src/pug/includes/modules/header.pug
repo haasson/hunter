@@ -1,0 +1,38 @@
+-
+   let menuItems = [
+      {title: 'Каталог', link: '#'},
+      {title: 'Готовые комплекты', link: '#'},
+      {title: 'Получите скидку %', link: '#'},
+      {title: 'Рассрочка и лизинг', link: '#'},
+      {title: 'Трейд-ин', link: '#'},
+      {title: 'Контакты', link: '#'},
+   ]
+
+
+header.header
+   img.consultant(src="assets/img/1header/consultant.png" srcset="assets/img/1header/consultant.png 2x")
+
+
+   .topline
+      a.logo(href="#")
+         img.link(src="assets/img/commons/logo.png" srcset="assets/img/commons/logo.png 2x")
+      ul.menu
+         each item in menuItems
+            li.menu-item(data-link=to)
+               a.menu-link(href="#") !{item.title}
+      .burger
+         div
+      button.catalog-btn.btn Получить полный каталог
+   .hero
+      .wrapper
+         h2.title.section-title Стенды сход-развала Hunter от официального поставщика с доставкой и сервисом по всей России
+         form.form
+            input.input.input-black(type="text" placeholder="Ваш номер телефона")
+            button.btn.btn-whatsapp.btn_with-icon
+               img.whatsapp(src="assets/img/commons/whatsapp.png" srcset="assets/img/commons/whatsapp.png 2x")
+               p.text Получить полный каталог с ценами на Whatsapp
+
+
+
+
+

@@ -1,0 +1,67 @@
+-
+  let productsList = [
+    {
+      title: 'Hunter Quick Check Drive',
+      text: 'Полностью бесконтактный стенд. Проверка занимает 3–5 секунд (передней и задних осей).',
+      img: 'check'
+    },
+    {
+      title: 'Hunter WA и Hunter PA с датчиками Hawkeye',
+      text: 'Самый бюджетный 3D стенд с ПО WinAlign + есть 2/4 камерные комплектации.',
+      img: 'wa-pa'
+    },
+  ]
+
+
+-
+  let productsList2 = [
+    {
+      title: 'Hunter WA с датчиками HawkEye Elite',
+      text: 'Программное обеспечение Hunter WinAlign + проверка сход-развала за 90 секунд.',
+      img: 'wa-elite'
+    },
+    {
+      title: 'Hunter Quick Check Drive',
+      text: 'Полностью бесконтактный стенд. Проверка занимает 3–5 секунд (передней и задних осей).',
+      img: 'check'
+    },
+    {
+      title: 'Hunter WA и Hunter PA с датчиками Hawkeye',
+      text: 'Самый бюджетный 3D стенд с ПО WinAlign + есть 2/4 камерные комплектации.',
+      img: 'wa-pa'
+    },
+  ]
+
+
+mixin productItem(product, i)
+  li.item
+    h3.item-title !{product.title}
+    .img
+      img.images(src=`assets/img/6products/${product.img}.png` srcset=`assets/img/6products/${product.img}.png 2x`)
+    p.text !{product.text}
+    button.btn Узнать цену
+
+
+.products
+  .wrapper
+    h2.title.section-title Основные продукты компании
+    .inner
+      ul.list
+        .item-red
+          h3.red-title Разобраться в стендах легко
+        each product, i in productsList
+           +productItem(product, i)
+    h2.title-stand Бесконтактные диагностические стенды нового поколения
+    .content
+      ul.list
+         each product, i in productsList2
+           +productItem(product, i)
+    .all
+      p.plus + Показать все продукты в категории
+
+
+
+
+
+
+

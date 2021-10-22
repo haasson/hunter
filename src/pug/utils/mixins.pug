@@ -1,0 +1,30 @@
+mixin svg(name, classList)
+   svg(class=`icon ${classList}`)
+      use(xlink:href=`assets/svg-sprite/icons.svg#${name}`)
+
+mixin btn(span1, span2, classList, link)
+   a(class=`btn ${classList}` href=`link`)= span1
+      span.btn-marked= span2
+      +svg('arrow', 'btn-arrow')
+
+
+//- Add picture element
+mixin picture(data)
+   - let {src, mobileFirst, lazy= true} = data
+   picture(class=`${data.classList || ''}`)
+      if (typeof src === 'string')
+         - let [img, ext] = src.split('.')
+         - let imgType = ext === 'jpg' ? `image/jpeg` : `image/${ext}`
+         source(type='image/webp' data-srcset=`${img}.webp` srcset=`${lazy ? '' : img + '.webp'}`)
+         source(type=imgType data-srcset=src srcset=`${lazy ? '' : src}`)
+         img(class=`${lazy ? 'lazy' : ''}` data-src=src src=`${lazy ? '' : src}`)
+      else
+         each image, breakpoint in src
+            - let [img, ext] = image.split('.')
+            - let imgType = ext === 'jpg' ? `image/jpeg` : `image/${ext}`
+            - let extr = mobileFirst ? 'min' : 'max'
+            - let media = breakpoint === 'default' ? '' : `(${extr}-width: ${breakpoint}px)`
+            source(type=imgType data-srcset=`${img}.webp`, media=media)
+            source(type=imgType data-srcset=image, media=media)
+            if (breakpoint === 'default')
+               img(class=`${lazy ? 'lazy' : ''}` data-src=src.default)

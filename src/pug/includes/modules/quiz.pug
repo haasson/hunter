@@ -1,0 +1,33 @@
+-
+  let quizData = [
+    {
+      title: 'Сколько стоит стенд, который вы присмотрели?',
+    },
+  ]
+
+
+.quiz
+  .wrapper
+    .inner
+      .preview
+        .content
+          h3.title Узнайте за сколько месяцев вы окупите стенд Hunter
+          p.subtitle Пройди тест и мы сделаем скидку на первый стенд и дополнительное оборудование
+          button.btn.btn_black Рассчитать окупаемость
+
+      .quiz-content
+        .navbar
+           span Вопрос 1 из !{quizData.length}
+           each question in quizData
+            .point
+        .questions
+          .question
+            ul.list
+               each question in quizData
+                 li.question
+                   h3.question-title !{question.title}
+          .div
+
+
+
+

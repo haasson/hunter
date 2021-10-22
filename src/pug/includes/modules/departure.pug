@@ -1,0 +1,28 @@
+-
+  let departuresList = [
+    {
+      text: 'Для подбора оборудования',
+    },
+    {
+      text: 'Замера помещения',
+    },
+    {
+      text: 'Подготовки чертежей',
+    },
+    {
+      text: 'Рекомендаций по подготовке помещения к установке оборудовани',
+    },
+  ]
+
+
+.departure
+  .wrapper
+    .inner
+      h2.title.section-title Бесплатный выезд сервисного инженера
+      ul.list
+        each departure in departuresList
+           li.item
+             img.marker(src="assets/img/7departure/marker.png")
+             p.text !{departure.text}
+      button.btn.btn_black Заказать выезд инженера
+      p.name Михаил Молчанов, технический специалист

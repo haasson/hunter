@@ -1,0 +1,20 @@
+-
+  let kitsList = [
+    {title: 'Быстрая диагностика (Hunter Quick Check Drive)', subtitle: 'Hunter QCD92'},
+    {title: 'Стенд Hunter + ямные пути', subtitle: 'PA210/22N-222MLAS'},
+    {title: 'Стенд Hunter + 4-х стоечный подъемник', subtitle: 'WA310/22NE-421FC3S'},
+  ]
+
+.kits
+  .wrapper
+    .inner
+      h2.title.section-title Готовые комплекты выгоднее <span>до 25%
+      .content
+        ul.list
+          each kit, i in kitsList
+             li.item
+                .images
+                  img.image(src=`assets/img/3kits/kits-${i+1}.png` srcset=`assets/img/3kits/kits-${i+1}.png 2x`)
+                h3.item-title !{kit.title}
+                p.item-subtitle !{kit.subtitle}
+      button.btn Получить комлпекты с ценами

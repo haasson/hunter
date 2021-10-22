@@ -1,0 +1,23 @@
+.plan
+  .wrapper
+    .inner
+      h2.title.section-title Рассрочка <span>0%</span> <br>Лизинг с первым взносом <span>от 10%</span>
+      form.form
+        .top
+          .sum
+            p.text Желаемая сумма лизинга
+            .price
+              input.input-price(type="text")
+              span ₽
+          .text-red Узнайте решение за 1 минуту
+        //input.input-range(type="range" min="500 000 ₽" max="2 500 000 ₽" step="500 000 ₽")
+        .fake-range
+        select.select2(data-placeholder="Для какого оборудования нужен лизинг?")
+          option
+          option 1
+          option 2
+          option 3
+        .tel
+          input.input(type="text" placeholder="Ваш номер телефона")
+          button.btn Получить одобрение
+
