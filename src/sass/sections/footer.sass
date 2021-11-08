@@ -1,0 +1,111 @@
+.footer
+  background-color: $main-text-color
+  .inner
+    display: flex
+    justify-content: space-between
+    padding: 91px 0 50px
+  .left
+    max-width: 420px
+    margin-right: 80px
+  .text
+    color: $white-footer
+    margin-bottom: 18px
+  .phone
+    font-size: 30px
+    line-height: 1.6
+    display: block
+    transition: color .5s
+    &:hover
+      color: darken($red, 4%)
+  .phone + .phone
+    margin-bottom: 44px
+  .email
+    font-size: 26px
+    line-height: 1.6
+    transition: color .5s
+    &:hover
+      color: darken($red, 4%)
+  .content
+    display: flex
+    align-content: flex-start
+    margin-top: 104px
+  .logo
+    flex-shrink: 0
+    margin-right: 20px
+  .content-text
+    font-size: 12px
+    color: $white-footer
+  .right-text
+    color: $white-footer
+    margin-bottom: 31px
+  .address
+    font-size: 30px
+    line-height: 1.2
+    color: $white
+    max-width: 477px
+    margin-bottom: 33px
+  .text-mode
+    color: $white-footer
+    margin-bottom: 40px
+  .btn
+    padding: 25px 49px
+  .content-mobile
+    display: none
+
+@media (max-width: 1080px)
+  .footer
+    .left
+      margin-right: 60px
+    .phone
+      font-size: 28px
+    .address
+      font-size: 28px
+
+@media (max-width: 992px)
+  .footer
+    .email
+      white-space: nowrap
+    .content
+      flex-direction: column
+    .logo
+      margin-right: 0
+      margin-bottom: 25px
+    .content-text
+      max-width: 295px
+
+
+@media (max-width: 768px)
+  .footer
+    .inner
+      padding-top: 59px
+    .left
+      margin-right: 40px
+    .btn
+      padding: 25px 30px
+    .email
+      font-size: 24px
+
+@media (max-width: 568px)
+  .footer
+    .inner
+      flex-direction: column
+    .left
+      margin-right: 0
+      margin-bottom: 56px
+    .content-computer
+      display: none
+    .btn
+      display: block
+      max-width: 100%
+      margin-bottom: 58px
+    .content-mobile
+      display: flex
+      align-items: center
+      text-align: center
+    .content-text
+      font-size: 14px
+
+@media (max-width: 568px)
+  .footer
+    .content
+      margin-top: 40px

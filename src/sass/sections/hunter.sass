@@ -1,0 +1,101 @@
+.hunter
+  padding: 82px 0
+  .inner
+    display: flex
+    justify-content: space-between
+  .left
+    margin-right: 20px
+  .title
+    color: $main-text-color
+    font-weight: 600
+    max-width: 685px
+    margin-bottom: 47px
+    span
+      color: $red
+  .content
+    margin-left: 55px
+    max-width: 510px
+  .content-title
+    font-size: 20px
+    font-weight: 600
+    line-height: 1.3
+    margin-bottom: 28px
+  .item
+    display: flex
+    align-items: flex-start
+    margin-bottom: 25px
+    &:last-child
+      margin-bottom: 0
+  .marker
+    margin-right: 17px
+    margin-top: 6px
+  .text
+    font-size: 20px
+    font-weight: 600
+  .right
+    border: 1px solid $gray-border
+    border-radius: 4px
+    box-shadow: 0 15px 15px 3px rgba(225, 225, 225, 0.08)
+    max-width: 354px
+    padding: 35px 27px
+  .bel
+    font-size: 20px
+    font-weight: 600
+    line-height: 1.2
+    margin-bottom: 31px
+  .engineer
+    flex-shrink: 0
+    img
+      margin: 0 auto 35px
+
+  .input
+    margin-bottom: 12px
+    &::placeholder
+      color: rgba($main-text-color, .5)
+      font-size: 16px
+  .btn
+    width: 100%
+
+@media (max-width: 768px)
+  .hunter
+    .inner
+      flex-direction: column
+    .title
+      max-width: 100%
+    .left
+      margin-right: 0
+      margin-bottom: 34px
+    .content
+      max-width: 100%
+      margin-left: 25px
+    .right
+      margin: 0 auto
+
+@media (max-width: 568px)
+  .hunter
+    padding: 38px 0
+    .title
+      margin-bottom: 22px
+    .content-title
+      margin-bottom: 26px
+    .item
+      margin-bottom: 15px
+
+@media (max-width: 420px)
+  .hunter
+    .right
+      max-width: 100%
+      margin: 0
+      padding: 15px
+    .info
+      display: flex
+      margin-bottom: 24px
+    .engineer
+      order: - 1
+      img
+        max-width: 92px
+        margin-bottom: 0
+        margin-right: 17px
+    .bel
+      margin-bottom: 0
+      font-size: 18px

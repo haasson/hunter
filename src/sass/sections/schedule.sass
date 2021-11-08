@@ -1,5 +1,8 @@
 .schedule
   padding-bottom: 99px
+  .inner
+    display: flex
+    flex-direction: column
   .title
     color: $main-text-color
     margin-bottom: 57px
@@ -7,14 +10,15 @@
   .subtitle
     display: flex
     justify-content: space-between
+  .subtitle-mobile
+    display: none
   .name
     &:nth-child(2)
       text-align: center
       margin-left: 37px
-  .text
-    span
-      font-size: 32px
-      font-weight: 600
+  .number
+    font-size: 32px
+    font-weight: 600
   .text-red
     font-size: 20px
     font-weight: 600
@@ -32,3 +36,57 @@
   .point
     margin-right: 11px
 
+@media (max-width: 992px)
+  .schedule
+    .text
+      font-size: 14px
+    .number
+      font-size: 23px
+    .text-red
+      font-size: 16px
+
+@media (max-width: 768px)
+  .schedule
+    padding-bottom: 50px
+    .markers
+      display: none
+    .subtitle
+      order: 1
+      flex-direction: column
+    .text-red
+      display: none
+    .subtitle-mobile
+      display: block
+      text-align: center
+    .text-mobile
+      font-size: 20px
+      font-weight: 600
+      line-height: 1.2
+      color: $red
+      margin: 0 auto
+    .name
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+    .dots
+      border-bottom: 2px dotted #d2d2d2
+      flex-grow: 1
+      margin: 0 5px 6px
+
+@media (max-width: 568px)
+  .schedule
+    .inner
+      overflow: hidden
+    .title
+      margin-bottom: 36px
+    .images
+      max-width: none
+    .text-mobile
+      margin: 0 0 0 auto
+
+@media (max-width: 480px)
+  .schedule
+    .images
+      width: 650px
+    .number
+      font-size: 18px

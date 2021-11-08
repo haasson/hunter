@@ -5,7 +5,7 @@
     {title: 'Стенд Hunter + 4-х стоечный подъемник', subtitle: 'WA310/22NE-421FC3S'},
   ]
 
-.kits
+.kits(id="kits")
   .wrapper
     .inner
       h2.title.section-title Готовые комплекты выгоднее <span>до 25%
@@ -14,7 +14,11 @@
           each kit, i in kitsList
              li.item
                 .images
-                  img.image(src=`assets/img/3kits/kits-${i+1}.png` srcset=`assets/img/3kits/kits-${i+1}.png 2x`)
+                  +picture({
+                     classList: 'image',
+                     src: `assets/img/3kits/kits-${i+1}.jpg`,
+
+                  })
                 h3.item-title !{kit.title}
                 p.item-subtitle !{kit.subtitle}
-      button.btn Получить комлпекты с ценами
+      button.btn(data-modal="confirm" data-title="Получить комлпекты с ценами") Получить комлпекты с ценами

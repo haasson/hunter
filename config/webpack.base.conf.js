@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -28,6 +29,7 @@ let conf = {
       publicPath: ''
    },
    plugins: [
+      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
          filename: `${PATHS.assets}css/[name].css`,
       }),
@@ -41,12 +43,20 @@ let conf = {
             to: `${PATHS.assets}img`
          },
          {
+            from: `${PATHS.src}/video`,
+            to: `${PATHS.assets}video`
+         },
+         {
             from: `${PATHS.src}/fonts`,
             to: `${PATHS.assets}fonts`
          },
          {
             from: `${PATHS.src}/svg/single`,
             to: `${PATHS.assets}svg`
+         },
+         {
+            from: `${PATHS.src}/include`,
+            to: `include`
          },
       ]),
       new SpriteLoaderPlugin(),
@@ -108,6 +118,11 @@ let conf = {
                MiniCssExtractPlugin.loader,
                {
                   loader: 'css-loader',
+                  options: { sourceMap: true, url: false }
+               },
+               'resolve-url-loader',
+               {
+                  loader: 'sass-loader',
                   options: { sourceMap: true }
                },
                {
@@ -119,10 +134,7 @@ let conf = {
                      }
                   }
                },
-               {
-                  loader: 'sass-loader',
-                  options: { sourceMap: true }
-               },
+
             ]
          },
          {
@@ -140,7 +152,7 @@ let conf = {
          {
             test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
             use: {
-               loader: "file-loader",
+               loader: "url-loader",
                options: {
                   name: `[name].[ext]`,
                }

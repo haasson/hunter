@@ -55,3 +55,103 @@
   .btn
     flex-shrink: 0
 
+
+  //SELECT2 (раскрывающийся список)
+
+  .select2-container
+    position: relative
+    width: 100% !important
+    font-size: 16px
+    color: $main-text-color !important
+
+    text-align: left
+    &::before
+      position: absolute
+      content: ''
+      right: 30px
+      top: 40%
+      z-index: 1
+      width: 11px
+      height: 11px
+      border-bottom: 1px solid #929292
+      border-right: 1px solid #929292
+      //border-style: solid
+      //border-width: 4px 4px 0 4px
+      //border-color: $gray transparent transparent transparent
+      transform: rotate(45deg)
+      transform-origin: center center
+      pointer-events: none
+    .select-option
+      display: flex
+      align-items: center
+      img
+        width: 24px
+        height: 24px
+        margin-right: 15px
+    .select2-selection
+      &--single
+        height: 66px
+        border: 1px solid #eaeaea !important
+        border-radius: 4px !important
+        padding: 20px 23px
+        outline: none
+        background-color: $gray-bg
+      //box-shadow: inset 1px 1px 0px rgba(0,0,0,.15)
+      &__rendered
+        width: 100%
+        padding: 0 !important
+        //padding-left: 30px !important
+        line-height: 1.5 !important
+      &__placeholder
+        color: $main-text-color !important
+        font-weight: 600
+      &__arrow
+        display: none
+    &--default
+      &__arrow
+        display: none
+    &--open
+      &::before
+        transform: rotate(-135deg)
+      &.select2-container--above
+        .select2-selection
+          border-top-left-radius: 0 !important
+          border-top-right-radius: 0 !important
+      &.select2-container--below
+        .select2-selection
+          border-bottom-left-radius: 0 !important
+          border-bottom-right-radius: 0 !important
+
+
+
+@media (max-width: 568px)
+  .plan
+    .title
+      margin-bottom: 20px
+    .form
+      border: none
+      padding: 0
+      .top
+        flex-direction: column
+        .sum
+          max-width: 100%
+        .text-red
+          order: -1
+          margin-bottom: 20px
+      .tel
+        display: block
+        input
+          margin-right: 0
+        .btn
+          margin-top: 20px
+          width: 100%
+
+    .select2-container
+      &:before
+        right: 10px
+      .select2-selection
+        &--single
+          padding: 25px 10px
+        &__placeholder
+          font-size: 12px
+

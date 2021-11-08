@@ -1,18 +1,40 @@
 .header
-  background: url("/assets/img/1header/bg.jpg") no-repeat center
+  //background: url("/assets/img/1header/bg.jpg") no-repeat center
   background-size: cover
   position: relative
+  padding-top: 240px
+  .video
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    object-fit: cover
+    filter: brightness(.4)
   .topline
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 3
+    width: 100%
     display: flex
     justify-content: space-between
     align-items: center
-    margin-bottom: 147px
     background: linear-gradient(180deg, rgba(0, 0, 0, .9) 0%, rgba(0,0,0, 0.2) 70%, rgba(0,0,0, 0) 100%)
+    transition: background .5s
+    &.dark
+      background: $main-text-color
   .logo
+    position: relative
+    z-index: 3
     flex-shrink: 0
     margin-left: 21px
   .menu
+    flex-grow: 1
+  .menu-list
     display: flex
+    justify-content: center
+
   .menu-item
     margin: 0 14px
   .menu-link
@@ -20,6 +42,13 @@
     transition: color .5s
     &:hover
       color: darken($red, 4%)
+
+  .info
+    display: none
+
+  .hero
+    position: relative
+
   .title
     max-width: 588px
     margin-bottom: 138px
@@ -27,6 +56,8 @@
     position: absolute
     left: 26px
     bottom: 27px
+    z-index: 1
+
   .form
     display: flex
     margin: 0 auto 55px
@@ -35,14 +66,165 @@
     width: 50%
   .btn-whatsapp
     width: 50%
-    display: flex
-    text-align: left
     position: relative
     left: -4px
+  .btn-letter
+    display: none
+    padding-left: 0
   .whatsapp
     margin-right: 12px
     flex-shrink: 0
+  .letter
+    flex-shrink: 0
+    margin-right: 12px
+  .stand
+    display: none
 
+@media (max-width: 1200px)
+  .header
+    @mixin burger-line
+      position: absolute
+      left: 0
+      width: 100%
+      height: 2px
+      background-color: $white
 
+    .catalog-btn
+      margin-left: auto
 
+    .menu
+      z-index: 2
+      top: 0
+      right: 0
+      bottom: 0
+      width: 100%
+      padding: 100px 20px 30px
+      position: fixed
+      overflow-y: auto
+      transform: scaleY(0)
+      transform-origin: top
+      transition: transform .2s
+      background-color: $black
+      &.active
+        transform: scaleY(1)
+    .topline
+      position: fixed
+      top: 0
+      left: 0
+      z-index: 2
+      padding: 15px 0
+      width: 100%
+      background: $red
+
+    .menu-list
+      display: block
+      margin: 0 auto
+      max-width: 360px
+    .menu-item
+      margin-bottom: 16px
+    .catalog-btn
+      display: none
+
+    .info
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-bottom: 50px
+      .btn-whatsapp
+        width: 100%
+        max-width: 305px
+        margin-bottom: 45px
+      .phone
+        display: block
+        font-size: 36px
+        &.small
+          margin-bottom: 12px
+          font-size: 30px
+      .email
+        padding-bottom: 8px
+        font-size: 22px
+        border-bottom: 1px solid $light-gray
+    .burger
+      display: block
+      position: relative
+      width: 24px
+      height: 20px
+      flex-shrink: 0
+      z-index: 2
+      margin: 0 25px
+      cursor: pointer
+      div
+        +burger-line()
+        top: 50%
+        transform: translateY(-50%)
+        opacity: 1
+        transition: opacity .3s
+      &:before,
+      &:after
+        +burger-line()
+        content: ""
+        transform: rotate(0deg)
+        transform-origin: center center
+        transition: .3s
+      &:before
+        top: 0
+      &:after
+        bottom: 0
+      &.active
+        div
+          opacity: 0
+        &:before
+          top: 50%
+          transform: translateY(-50%) rotate(45deg)
+        &:after
+          bottom: 50%
+          transform: translateY(50%) rotate(-45deg)
+
+@media (max-width: 992px)
+  .header
+    .title
+      max-width: 100%
+      text-align: center
+    .consultant
+      display: none
+
+@media (max-width: 768px)
+  .header
+    background: $red
+    padding-top: 35px
+    .video
+      display: none
+
+    .title
+      margin-bottom: 30px
+    .form
+      display: none
+    .btn-letter
+      position: relative
+      display: flex
+      max-width: 330px
+      margin: -120px auto 0
+      font-size: 18px
+    .stand
+      display: block
+      img
+        margin: 0 auto
+
+    .hero
+      padding-top: 80px
+
+@media (max-width: 420px)
+  .header
+    .btn-whatsapp
+      padding-left: 15px
+      padding-right: 15px
+    .btn-letter
+      padding-right: 12px
+    .info
+      .phone
+        font-size: 26px
+        &.small
+          font-size: 22px
+      .email
+        font-size: 22px
 

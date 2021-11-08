@@ -1,35 +1,76 @@
 -
    let menuItems = [
-      {title: 'Каталог', link: '#'},
-      {title: 'Готовые комплекты', link: '#'},
-      {title: 'Получите скидку %', link: '#'},
-      {title: 'Рассрочка и лизинг', link: '#'},
-      {title: 'Трейд-ин', link: '#'},
-      {title: 'Контакты', link: '#'},
+      {title: 'Каталог', link: '#', datascroll: 'products'},
+      {title: 'Готовые комплекты', link: '#', datascroll: 'kits'},
+      {title: 'Получите скидку %', link: '#', datascroll: 'quiz'},
+      {title: 'Рассрочка и лизинг', link: '#', datascroll: 'plan'},
+      {title: 'Трейд-ин', link: '#', datascroll: 'tradein'},
+      {title: 'Контакты', link: '#', datascroll: 'footer'},
    ]
 
 
+
 header.header
-   img.consultant(src="assets/img/1header/consultant.png" srcset="assets/img/1header/consultant.png 2x")
+   //img.consultant(src="assets/img/1header/consultant.png" srcset="assets/img/1header/consultant.png 2x")
+   +picture({
+      classList: 'consultant',
+      src: 'assets/img/1header/consultant.png',
+
+   })
+   video.video(src="assets/video/hero.mp4" loop muted autoplay preload="auto")
 
 
    .topline
       a.logo(href="#")
-         img.link(src="assets/img/commons/logo.png" srcset="assets/img/commons/logo.png 2x")
-      ul.menu
-         each item in menuItems
-            li.menu-item(data-link=to)
-               a.menu-link(href="#") !{item.title}
-      .burger
+         +picture({
+            classList: 'link',
+            src: 'assets/img/commons/logo.png',
+            lazy: false
+         })
+      .menu.j-menu
+         .info.mobile
+            button.btn.btn-whatsapp.btn_with-icon(data-modal="confirm" data-title="Получить полный каталог с ценами")
+               +picture({
+                  classList: 'whatsapp',
+                  src: 'assets/img/commons/whatsapp.png',
+                  lazy: false
+               })
+               p.text Получить полный каталог с ценами на Whatsapp
+            .contact
+               a.phone(href="tel:+78006004227") +7 (800) 600–42–27
+               a.phone.small(href="tel:+74950000000") +7 (495) 000–00–00
+               a.email(href="mailto:info@hunter-company.ru") info@hunter-company.ru
+
+         ul.menu-list
+            each item in menuItems
+               li.menu-item(data-link=to)
+                  a.menu-link(href="#" data-scroll=item.datascroll) !{item.title}
+      button.catalog-btn.btn(data-modal="confirm" data-title="Получить полный каталог с ценами") Получить полный каталог
+      .burger.j-burger
          div
-      button.catalog-btn.btn Получить полный каталог
    .hero
       .wrapper
          h2.title.section-title Стенды сход-развала Hunter от официального поставщика с доставкой и сервисом по всей России
-         form.form
-            input.input.input-black(type="text" placeholder="Ваш номер телефона")
-            button.btn.btn-whatsapp.btn_with-icon
-               img.whatsapp(src="assets/img/commons/whatsapp.png" srcset="assets/img/commons/whatsapp.png 2x")
+         +picture({
+            classList: 'stand',
+            src: 'assets/img/1header/stand.png',
+            lazy: false
+         })
+         button.btn.btn_black.btn_with-icon.btn-letter(data-modal="confirm" data-title="Получить полный каталог с ценами")
+            +picture({
+               classList: 'letter',
+               src: 'assets/img/1header/h-letter.png',
+               lazy: false
+            })
+            p.text Получить полный каталог с ценами на Whatsapp
+         form#form-header.form
+            input.input.input-black.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
+            button.btn.btn-whatsapp.btn_with-icon(type="submit")
+               +picture({
+                  classList: 'whatsapp',
+                  src: 'assets/img/commons/whatsapp.png',
+                  lazy: false
+               })
                p.text Получить полный каталог с ценами на Whatsapp
 
 

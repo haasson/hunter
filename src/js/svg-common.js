@@ -1,3 +1,5 @@
 // import '../svg/arrow.svg'
 import '../svg/point.svg'
 import '../svg/point-blue.svg'
+import '../svg/close.svg'
+import '../svg/back.svg'

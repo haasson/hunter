@@ -1,0 +1,39 @@
+-
+  let hunterList = [
+    {
+      text: 'Обновление ПО',
+    },
+    {
+      text: 'Калибровка оборудования',
+    },
+    {
+      text: 'Ремонт',
+    },
+    {
+      text: 'Монтаж',
+    },
+  ]
+
+
+.hunter
+  .wrapper
+    .inner
+      .left
+        h2.title.section-title На все оборудование Hunter действует официальная гарантия <span>1&nbsp;год</span>
+        .content
+          h3.content-title Наша сервисная служба поможет вам разобраться со всеми техническими моментами:
+          ul.list
+             each hunter in hunterList
+               li.item
+                 img.marker(src="assets/img/9hunter/marker.png")
+                 p.text !{hunter.text}
+      form#form-warranty.right
+        .info
+          p.bel Закажите обратный звонок сервисного инженера
+          +picture({
+             classList: 'engineer',
+             src: 'assets/img/9hunter/engineer.png',
+
+          })
+        input.input.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
+        button.btn(type="submit") Заказать звонок

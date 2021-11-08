@@ -1,0 +1,100 @@
+.modal-product
+  .modal-content
+    max-width: 1120px
+
+  .content
+    position: relative
+  .info
+    padding-left: 45%
+  .img
+    position: absolute
+    left: 0
+    top: 0
+    width: calc(40% - 30px)
+  .title
+    font-size: 26px
+    font-weight: 600
+    line-height: 1.2
+    margin-bottom: 26px
+  .suptitle
+    font-size: 20px
+    margin-bottom: 34px
+  .list
+    margin-left: 22px
+    margin-bottom: 40px
+  .item
+    display: flex
+    position: relative
+    &:before
+      display: inline-block
+      content: ''
+      width: 5px
+      height: 5px
+      border-radius: 50%
+      background-color: $light-gray
+      margin-right: 8px
+      margin-top: 9px
+  .text
+    color: $light-gray
+  .price
+    font-size: 26px
+    font-weight: 600
+    line-height: 1.2
+    color: $red
+    margin-bottom: 30px
+
+  .tel
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    padding-left: 50%
+  .input
+    margin-right: 10px
+  .btn
+    flex-shrink: 0
+
+@media (max-width: 1080px)
+  .modal-product
+    .tel
+      margin-left: auto
+      padding-left: 0
+      max-width: 500px
+
+@media (max-width: 768px)
+  .modal-product
+    .info
+      padding-left: 0
+    .title
+      font-size: 22px
+    .list
+      display: none
+    .img
+      position: static
+      img
+        width: 50%
+        max-width: 220px
+        margin: 0 auto 20px
+    .tel
+      margin: 0 auto
+
+@media (max-width: 568px)
+  .modal-product
+    .title
+      font-size: 20px
+    .suptitle
+      font-size: 15px
+      margin-bottom: 15px
+    .price
+      font-size: 22px
+    .tel
+      flex-direction: column
+      align-items: stretch
+    .input
+      margin-bottom: 15px
+    .btn
+      padding-left: 20px
+      padding-right: 20px
+
+
+
+

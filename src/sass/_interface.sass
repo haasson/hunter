@@ -1,14 +1,12 @@
-.wrapper
-   width: calc(100% - 160px)
-   max-width: $wrapper
-   margin: 0 auto
-
 .section
    &-title
       font-size: 48px
       font-weight: 400
       color: $white
       line-height: 1.2
+
+.title-small
+   font-size: 30px
 
 .btn
    padding: 26px 27px
@@ -25,13 +23,18 @@
    &_black
       padding: 26px 42px
       background-color: $main-text-color
-      border-radius: 5px
       &:hover
          background-color: lighten($main-text-color, 4%)
 
    &_with-icon
+      display: flex
+      text-align: left
       padding: 17px 33px 15px 26px
-      border-radius: 5px
+
+   &.btn_back
+      padding: 26px 36px
+      border: 1px solid rgba($white, .3)
+
 
 input
    padding: 24px
@@ -50,70 +53,7 @@ input
       line-height: normal
 
 
-//  SELECT2 (раскрывающийся список)
-.select2-container
-   position: relative
-   width: 100% !important
-   font-size: 16px
-   color: $main-text-color !important
 
-   text-align: left
-   &::before
-      position: absolute
-      content: ''
-      right: 30px
-      top: 40%
-      z-index: 1
-      width: 11px
-      height: 11px
-      border-bottom: 1px solid #929292
-      border-right: 1px solid #929292
-      //border-style: solid
-      //border-width: 4px 4px 0 4px
-      //border-color: $gray transparent transparent transparent
-      transform: rotate(45deg)
-      transform-origin: center center
-      pointer-events: none
-   .select-option
-      display: flex
-      align-items: center
-      img
-         width: 24px
-         height: 24px
-         margin-right: 15px
-   .select2-selection
-      &--single
-         height: 66px
-         border: none !important
-         border-radius: 4px !important
-         padding: 25px 23px
-         outline: none
-         background-color: $gray-bg
-         //box-shadow: inset 1px 1px 0px rgba(0,0,0,.15)
-      &__rendered
-         width: 100%
-         padding: 0 !important
-         //padding-left: 30px !important
-         line-height: 1.5 !important
-      &__placeholder
-         color: $main-text-color !important
-         font-weight: 600
-      &__arrow
-         display: none
-   &--default
-      &__arrow
-         display: none
-   &--open
-      &::before
-         transform: rotate(-135deg)
-      &.select2-container--above
-         .select2-selection
-            border-top-left-radius: 0 !important
-            border-top-right-radius: 0 !important
-      &.select2-container--below
-         .select2-selection
-            border-bottom-left-radius: 0 !important
-            border-bottom-right-radius: 0 !important
 
 //  NOUISLIDER (бегунок)
 
@@ -153,6 +93,15 @@ body .noUi-target
          background: $red
 
 
+// Validation
+
+.validate-input
+   &.validate-error
+      border: 1px solid $red
+      background: #ffa6a7
+      &.input-black
+         background: #321213
+
 
 
 
@@ -162,21 +111,25 @@ body .noUi-target
 
 @media (max-width: 1200px)
    .section
-      padding: 40px 0
       &-title
-         margin-bottom: 30px
-         font-size: 28px
+         font-size: 40px
+   .title-small
+      font-size: 26px
 
 @media (max-width: 992px)
    .section
-      padding: 30px 0
       &-title
-         margin-bottom: 25px
-         font-size: 26px
+         font-size: 34px
+   .title-small
+      font-size: 24px
 
 @media (max-width: 768px)
    .section
-      padding: 20px 0
       &-title
-         margin-bottom: 20px
-         font-size: 24px
+         font-size: 26px
+   .title-small
+      font-size: 22px
+
+@media (max-width: 480px)
+   .btn
+      padding: 26px 25px

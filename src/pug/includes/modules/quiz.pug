@@ -1,32 +1,114 @@
 -
   let quizData = [
     {
+      name: 'stand-price',
       title: 'Сколько стоит стенд, который вы присмотрели?',
+      textLeft: 'Для справки: <br>Инфракрасные стенды, от 515 000 ₽ <br>3D-стенды Hunter PA, от 920 000 ₽ <br>Бесконтактный диагностический стенд, от 4 000 000 ₽',
+      textRight: '<p>Кажется, что чем дороже стенд, тем дольше он окупается. Это не так.</p> <p>Чем дороже модель, тем выше скорость работы, больше у неё возможностей, шире спектр услуг и выше размер среднего чека.</p> <p>Кроме того, вы перестаете отдавать клиентов конкурентам.</p>',
+      range: {
+        min: '500000',
+        max: '5000000',
+        start: '3500000',
+        step: '5000',
+        postfix: ' ₽',
+      }
+    },
+    {
+      name: 'average-price',
+      title: 'Средний чек по сход-развалу?',
+      textLeft: 'Для справки: <br>По данным на июнь 2021 г. в г. Чебоксары средний чек за сход-развал легковых авто составляет 1500 р., грузовых — 3000 р. <br>Вы можете смело добавлять 10-20%: стенду Hunter доверыют, клиенты довольны и готовы платить больше.',
+      textRight: '<p>Вы будете не только проводить непосредственно сход-развал, но и добавлять его после таких услуг, как:</p> <ul><li>- шиномонтаж</li> <li>- замена шаровых опор</li> <li>- замена  рулевого наконечника</li> <li>- замена шруса</li> <li>- замена стабилизатора</li> <li>- замена амортизатора</li></ul> <p>Это означает, что вы повышаете средний чек по автосервису в целом на 20-30%.</p>',
+      range: {
+        min: '1500',
+        max: '4000',
+        start: '2000',
+        step: '100',
+        postfix: ' ₽',
+      }
+    },
+    {
+      name: 'cars-per-day',
+      title: 'Сколько машин в день принимаете на сход-развал?',
+      textLeft: 'Для справки: <br>По нашим данным на июнь 2021 г. в г. Чебоксары автосервис с 1 постом схода-развала обслуживает 5-6 авто в день.',
+      textRight: '<p>Чем дороже стенд, тем больше у него пропускная способность.</p> <p>Например, на Hunter PA услуга занимает 2 минуты, а на Hunter WA 1 минуту.</p> <p>Следовательно, на одном посте с Hunter WA вы заработаете больше, чем на 2 постах с Hunter PA при  потоке машин и хорошей загрузке.</p>',
+      range: {
+        min: '1',
+        max: '30',
+        start: '6',
+        step: '1',
+        postfix: '',
+      }
     },
   ]
 
 
-.quiz
+#quiz.quiz.q-body
   .wrapper
-    .inner
-      .preview
+    form#form-quiz.form
+      .preview.q-preview(data-bg="assets/img/4quiz/bg.jpg")
+        .gradient
         .content
-          h3.title Узнайте за сколько месяцев вы окупите стенд Hunter
+          h3.title.title-small Узнайте за сколько месяцев вы окупите стенд Hunter
           p.subtitle Пройди тест и мы сделаем скидку на первый стенд и дополнительное оборудование
-          button.btn.btn_black Рассчитать окупаемость
+          span.btn.btn_black.q-preview-btn Рассчитать окупаемость
 
-      .quiz-content
+      .quiz-content.q-main
         .navbar
-           span Вопрос 1 из !{quizData.length}
+          span Вопрос <span class="q-current-count">1</span> из !{quizData.length}
+          .points.q-progress-steps
+             each question in quizData
+               .point
+        ul.questions.q-questions
            each question in quizData
-            .point
-        .questions
-          .question
-            ul.list
-               each question in quizData
-                 li.question
-                   h3.question-title !{question.title}
-          .div
+             li.question
+               .content
+                 .left
+                   h3.question-title.title-small !{question.title}
+                   .fake-range(data-min=question.range.min data-max=question.range.max data-start=question.range.start data-step=question.range.step data-tooltip="true" data-postfix=question.range.postfix)
+                   input.real-range(type="range" name=question.name value=question.range.start min=question.range.min max=question.range.max)
+                   p.text !{question.textLeft}
+                 .right
+                   .consultant
+                     +picture({
+                        classList: 'image',
+                        src: 'assets/img/4quiz/consultant.png',
+
+                     })
+                     p.name Михаил Молчанов, <br>ваш помощник по стендам
+                   .text !{question.textRight}
+        .controls
+          span.btn.btn_back.q-btn-prev
+            +svg(`back`, 'back')
+            p.text Назад
+          span.btn.btn_black.btn_next.q-btn-next Следующий вопрос
+
+      .fake-calc.q-fake-block
+        h3.fake-title.title-small Система рассчитывает окупаемость и составляет бизнес-план
+        ul.fake-list.q-fake-list
+          li.fake-item
+            .fake-point
+            .fake-text Рассчитываем окупаемость
+          li.fake-item
+            .fake-point
+            .fake-text Подготавливаем бизнес-план на основе ответов
+          li.fake-item
+            .fake-point
+            .fake-text Генерируются excel-файлы
+        .progress-wrap
+          .progress.q-fake-progress
+        .percent
+          span 0%
+          span 100%
+
+      .final.q-final(data-bg="assets/img/4quiz/final-bg.jpg")
+        .gradient
+        .content
+          h3.final-title.title-small Система перегружена запросами, нам нужно еще 5–10 минут
+          p.final-text Введите телефон и по окончании генерации мы пришлем вам все файлы
+          .tel
+            input.input.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
+            button.btn.btn_black(type="submit") Получить
+
 
 
 

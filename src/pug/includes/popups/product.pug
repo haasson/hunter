@@ -1,0 +1,24 @@
+
+
+
+
+.modal-bg.modal-product
+  .modal-content
+    .close
+      +svg('close', 'modal-close')
+    .content
+
+      .info
+        h3.title Hunter WA и Hunter PA с датчиками Hawkeye
+        +picture({
+           classList: 'img',
+           src: 'assets/img/6products/1.jpg',
+           lazy: false
+        })
+        p.suptitle
+        ul.list
+        p.price
+      form#form-product.tel
+        input.input.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
+        button.btn(type="submit") Узнать точную стоимость
+

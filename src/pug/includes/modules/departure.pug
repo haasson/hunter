@@ -17,12 +17,12 @@
 
 .departure
   .wrapper
-    .inner
+    .inner(data-bg="assets/img/7departure/bg.png")
       h2.title.section-title Бесплатный выезд сервисного инженера
       ul.list
         each departure in departuresList
            li.item
              img.marker(src="assets/img/7departure/marker.png")
              p.text !{departure.text}
-      button.btn.btn_black Заказать выезд инженера
+      button.btn.btn_black(data-modal="confirm" data-title="Заказать выезд инженера") Заказать выезд инженера
       p.name Михаил Молчанов, технический специалист

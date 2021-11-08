@@ -9,18 +9,16 @@
       color: $red
   .content
     margin-bottom: 48px
-  .list
-    display: flex
-    justify-content: space-between
-    align-items: flex-start
   .item
     display: flex
     flex-direction: column
     justify-content: center
-    width: calc(33.33% - 10px)
+    padding-left: 20px
+    padding-right: 20px
   .images
     min-height: 344px
     display: flex
+    justify-content: center
     align-items: center
   .item-title
     font-size: 26px
@@ -33,5 +31,21 @@
   .btn
     display: block
     margin: 0 auto
+
+  .slick-dots
+    display: flex
+    justify-content: center
+    li
+      width: 8px
+      height: 8px
+      flex-shrink: 0
+      margin: 0 3px
+      background: rgba($gray, .5)
+      border-radius: 50%
+      button
+        display: none
+
+      &.slick-active
+        background: $red
 
 

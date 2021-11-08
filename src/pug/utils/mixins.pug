@@ -11,7 +11,7 @@ mixin btn(span1, span2, classList, link)
 //- Add picture element
 mixin picture(data)
    - let {src, mobileFirst, lazy= true} = data
-   picture(class=`${data.classList || ''}`)
+   picture(class=`${data.classList || ''} ${lazy ? 'lazy' : ''}`)
       if (typeof src === 'string')
          - let [img, ext] = src.split('.')
          - let imgType = ext === 'jpg' ? `image/jpeg` : `image/${ext}`

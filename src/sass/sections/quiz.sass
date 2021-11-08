@@ -1,30 +1,332 @@
 .quiz
   padding-bottom: 98px
   .preview
-
-    background: linear-gradient(90deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 35%, rgba(224,23,25,1) 60%, rgba(224,23,25,1) 100%), url("/assets/img/4quiz/bg.jpg") no-repeat center
+    position: relative
+    background: no-repeat center
     background-size: cover
     padding: 216px 56px 181px
-  .content
-    max-width: 390px
-    margin-left: auto
-    color: $white
-  .title
-    font-size: 30px
-    font-weight: 400
-    line-height: 1.2
-    margin-bottom: 25px
-  .subtitle
-    margin-bottom: 36px
+    border-radius: 6px
+    .gradient
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      background: linear-gradient(90deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 35%, rgba(224,23,25,1) 60%, rgba(224,23,25,1) 100%)
+
+    .content
+      position: relative
+      max-width: 390px
+      margin-left: auto
+      color: $white
+    .title
+      font-weight: 400
+      line-height: 1.2
+      margin-bottom: 25px
+    .subtitle
+      margin-bottom: 36px
 
   .quiz-content
-    display: none
     background-color: $red
-  .point
-    width: 7px
-    height: 7px
-    background-color: $white
-    opacity: 0.3
-    border-radius: 50%
+    border-radius: 6px
+    padding: 44px 38px 36px 36px
+    .navbar
+      display: flex
+      justify-content: center
+      margin-bottom: 77px
+      span
+        font-size: 13px
+        line-height: 1.4
+        color: rgba($white, .6)
+    .points
+      display: flex
+      align-items: center
+      margin-left: 34px
+    .point
+      width: 7px
+      height: 7px
+      background-color: $white
+      opacity: 0.3
+      border-radius: 50%
+      margin-right: 20px
+      &:last-child
+        margin-right: 0
+      &.current,
+      &.done
+        width: 8px
+        height: 8px
+        background-color: $white
+        opacity: 0.7
+    .content
+      display: flex
+      justify-content: space-between
+      margin-bottom: 81px
+    .left
+      flex-grow: 1
+      margin-right: 55px
+    .right
+      max-width: 347px
+    .question-title
+      font-weight: 400
+      line-height: 1.2
+      color: $white
+      margin-bottom: 55px
+    .text
+      color: rgba($white, .8)
+      p
+        color: rgba($white, .8)
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+      ul
+        margin-bottom: 20px
+    .consultant
+      display: flex
+      align-items: center
+      margin-bottom: 33px
+    .image
+      flex-shrink: 0
+      margin-right: 20px
+    .name
+      font-size: 13px
+      line-height: 1.4
+      color: rgba($white, .6)
+    .controls
+      display: flex
+      justify-content: space-between
+    .btn_back
+      display: flex
+    .back
+      flex-shrink: 0
+      width: 7px
+      height: 13px
+      margin-right: 16px
+      margin-top: 3px
+    .btn_next
+      margin-left: auto
 
+  //  NOUISLIDER (бегунок)
+  .noUi-target
+    height: 5px
+    margin: 10px 0 85px
+    background-color: rgba($white, .3)
+    border: none
+    box-shadow: none
+  .noUi-target
+    &.noUi-horizontal
+      .noUi-handle
+        width: 30px
+        height: 30px
+        background: $white
+        border-radius: 50%
+        border: 5px solid $red
+        box-shadow: none
+        cursor: pointer
+        transform: translate(50%,-42%)
+
+        &::after,
+        &::before
+          display: none
+      .noUi-pips
+        width: calc(100% - 64px)
+        margin: 0 30px
+      .noUi-marker
+        display: none
+      .noUi-value
+        font-size: 13px
+        line-height: 1.8
+        color: rgba($white, .3)
+      .noUi-connect
+        background: #ebebeb
+      .noUi-tooltip
+        background: none
+        border: none
+        color: $white
+        font-size: 15px
+
+
+
+  .fake-calc
+    background-color: $red
+    border-radius: 6px
+    padding: 184px 62px 174px
+    .fake-title
+      font-weight: 400
+      line-height: 1.2
+      color: $white
+      max-width: 600px
+      margin-bottom: 39px
+    .fake-list
+      margin-bottom: 52px
+    .fake-item
+      display: flex
+      margin-bottom: 15px
+      &.active,
+      &.done
+        .fake-point
+          &::before
+            display: block
+    .fake-point
+      position: relative
+      width: 18px
+      height: 18px
+      flex-shrink: 0
+      border: 2px solid $white
+      border-radius: 50%
+      margin-right: 15px
+      margin-top: 3px
+      &::before
+        display: none
+        content: ''
+        position: absolute
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background: $white
+        left: 50%
+        top: 50%
+        transform: translateX(-50%) translateY(-50%)
+    .fake-text
+      color: $white
+    .progress-wrap
+      background-color: rgba($white, .3)
+      height: 8px
+      border-radius: 4px
+      margin-bottom: 14px
+    .progress
+      background-color: $white
+      height: 8px
+      border-radius: 4px
+      transition: width 1s linear
+    .percent
+      display: flex
+      justify-content: space-between
+      font-size: 13px
+      color: rgba($white, .6)
+
+  .final
+    position: relative
+    background-size: 50%
+    border-radius: 6px
+    padding: 175px 61px
+    color: $white
+    .gradient
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      background: linear-gradient(270deg, rgba(224,23,25,0.2) 0%, rgba(224,23,25,0.4) 21%, rgba(224,23,25,0.86) 20%, rgba(224,23,25,1) 100%)
+    .content
+      position: relative
+    .final-title
+      font-weight: 400
+      line-height: 1.2
+      max-width: 470px
+      margin-bottom: 34px
+    .final-text
+      max-width: 296px
+      margin-bottom: 36px
+    .tel
+      display: flex
+      max-width: 470px
+    .input
+      margin-right: 11px
+      //flex-shrink: 0
+
+
+@media (max-width: 1080px)
+  .quiz
+    .preview
+      background-size: cover
+      .gradient
+        background: linear-gradient(90deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 25%, rgba(224,23,25,1) 50%, rgba(224,23,25,1) 100%)
+
+@media (max-width: 992px)
+  .quiz
+    .preview
+      .gradient
+        background: linear-gradient(90deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 15%, rgba(224,23,25,1) 35%, rgba(224,23,25,1) 100%)
+
+    .quiz-content
+      .right
+        max-width: 265px
+
+@media (max-width: 768px)
+  .quiz
+    .preview
+      padding-bottom: 50px
+      background-size: 100%
+      background-position: top center
+      .gradient
+        background: linear-gradient(180deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 15%, rgba(224,23,25,1) 40%, rgba(224,23,25,1) 100%)
+    .content
+      margin: 0 auto
+      .btn
+        display: block
+        margin: 0 auto
+        width: 100%
+
+    .quiz-content
+      .content
+        display: block
+      .left
+        margin-right: 0
+        margin-bottom: 20px
+      .right
+        max-width: 100%
+
+    .fake-calc
+      padding: 100px 50px
+
+    .final
+      padding: 100px 50px
+      background-size: contain
+      .gradient
+        background: linear-gradient(270deg, rgba(224,23,25,0.3) 0%, rgba(224,23,25,0.6) 11%, rgba(224,23,25,0.9) 37%, rgba(224,23,25,1) 100%), $red url("/assets/img/4quiz/final-bg.jpg") no-repeat right
+
+@media (max-width: 568px)
+  .quiz
+    .btn_back
+      .text
+        display: none
+      .icon
+        margin-right: 0
+    .final
+      .tel
+        flex-direction: column
+      .input
+        margin-bottom: 15px
+
+@media (max-width: 480px)
+  .quiz
+    .fake-calc
+      padding: 40px 25px
+    .final
+      padding: 40px 25px
+      .gradient
+        background: $red
+
+
+@media (max-width: 420px)
+  .quiz
+    .preview
+      padding: 190px 20px 20px
+      background-size: 100%
+      background-position: top center
+      .gradient
+        background: linear-gradient(180deg, rgba(36,37,38,0) 0%, rgba(224,23,25,0) 5%, rgba(224,23,25,1) 35%, rgba(224,23,25,1) 100%)
+
+    .noUi-target
+      margin-left: 15px
+      margin-right: 15px
+      &.noUi-horizontal
+        .noUi-tooltip
+          font-size: 11px
+    .quiz-content
+      padding: 15px
+      .btn_back
+        padding: 26px
+        p
+          display: none
 

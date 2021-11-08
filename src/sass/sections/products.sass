@@ -8,16 +8,19 @@
   .inner
     display: flex
     justify-content: space-between
-    margin-bottom: 76px
+
   .list
     display: flex
-    justify-content: space-between
+    justify-content: space-around
+    flex-wrap: wrap
+    //margin-bottom: 30px
   .item-red
     width: calc(33.33% - 20px)
     border-radius: 6px
-    background: url("/assets/img/6products/bg.jpg") no-repeat center
+    background: no-repeat center
     background-size: cover
     padding: 34px 26px
+    cursor: pointer
   .red-title
     font-size: 26px
     font-weight: 600
@@ -26,25 +29,53 @@
     max-width: 190px
     margin-bottom: 169px
   .item
-    width: calc(33.33% - 20px)
+    display: flex
+    flex-direction: column
+    width: calc(33.33% - 17px)
     border: 1px solid $gray-border
     border-radius: 6px
-    padding: 34px 26px
+    padding: 26px
+    margin-bottom: 17px
+    &:nth-child(n+10)
+      display: none
+
+  .category
+    color: $red
+    font-size: 14px
+    margin-bottom: 7px
   .item-title
     font-size: 26px
     font-weight: 600
     line-height: 1.2
-    margin-bottom: 32px
+    margin-bottom: 7px
+    letter-spacing: -0.16px
+  .label
+    align-self: flex-start
+    margin-bottom: 10px
+    padding: 8px 10px
+    border-radius: 3px
+    color: $white
+    line-height: 1
+    &.red
+      background: $red
+    &.blue
+      background: $blue
+  .code
+    color: $gray
+    letter-spacing: -0.9px
+    margin-bottom: 15px
   .img
-    min-height: 233px
+    //min-height: 233px
     display: flex
     justify-content: center
     align-items: center
-    margin-bottom: 39px
+    margin: auto
+    padding: 15px 0
   .text
     color: $light-gray
     line-height: 1.4
     margin-bottom: 26px
+    margin-top: 28px
   .btn
     width: 100%
   .title-stand
@@ -55,10 +86,35 @@
   .content
     margin-bottom: 40px
   .all
-    background: linear-gradient(180deg, rgba(208,203,203,0) 0%, rgba(225,225,225,0.06206232492997199) 21%, rgba(225,225,225,0.7651435574229692) 100%)
+    padding: 36px 0
+    background: linear-gradient(180deg, rgba(208,203,203,0) 20%, rgba(225,225,225,0.062) 41%, rgba(225,225,225,0.765) 100%)
     text-align: center
     border-bottom: 1px solid $gray-border
+    cursor: pointer
   .plus
+    display: inline-block
     color: $light-gray
-    margin-bottom: 36px
+
+@media (max-width: 1080px)
+  .products
+    .item
+      padding: 24px 15px
+
+@media (max-width: 992px)
+  .products
+    .item
+      width: calc(50% - 15px)
+      //&:nth-child(n)
+      //  display: none
+      &:nth-child(n+7)
+        display: none
+
+@media (max-width: 568px)
+  .products
+    .item
+      width: 100%
+      &:nth-child(n+4)
+        display: none
+    .text
+      font-size: 14px
 

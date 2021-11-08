@@ -1,23 +1,25 @@
-.plan
+.plan(id="plan")
   .wrapper
     .inner
       h2.title.section-title Рассрочка <span>0%</span> <br>Лизинг с первым взносом <span>от 10%</span>
-      form.form
+      form#form-plan.form
         .top
           .sum
             p.text Желаемая сумма лизинга
             .price
-              input.input-price(type="text")
+              input.input-price(type="text" data-input="plan")
               span ₽
           .text-red Узнайте решение за 1 минуту
-        //input.input-range(type="range" min="500 000 ₽" max="2 500 000 ₽" step="500 000 ₽")
-        .fake-range
-        select.select2(data-placeholder="Для какого оборудования нужен лизинг?")
+        .fake-range(data-min="500000" data-max="2500000" data-start="1500000" data-step="5000" data-pips=[500000, 1000000, 1500000, 2000000, 250000] data-postfix=" ₽" data-range="plan")
+        input.real-range(type="range" name="leasing-sum" value="1500000" min="500000" max="2500000")
+        select.select2(data-placeholder="Для какого оборудования нужен лизинг?" name="leasing-equipment")
           option
-          option 1
-          option 2
-          option 3
+          option готовый комплект с подъемником
+          option готовый комплект на яме
+          option стенд
+
+
         .tel
-          input.input(type="text" placeholder="Ваш номер телефона")
-          button.btn Получить одобрение
+          input.input.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
+          button.btn(type="submit") Получить одобрение
 
