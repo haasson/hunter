@@ -1,13 +1,40 @@
+-
+   let points = [
+     {name: 'Стенд регулировки развал-схождения', code: 'Hunter WA310/22NE-421FC3S', position: 'left'},
+     {name: 'Балансировочный станок', code: 'Hunter SWP70E', position: 'right'},
+     {name: 'Шиномонтажный станок', code: 'Hunter TCX70-21U', position: 'right'},
+     {name: 'Бесконтактный стенд сход-развала', code: 'Hunter Quick Check Drive', position: 'right'},
+     {name: 'Четырехстоечный подъемник', code: 'Hunter L451-IS-50E', position: 'right'},
+     {name: 'Ножничный подъемник', code: 'RX45KFIS-435E', position: 'left'},
+     {name: 'Ямные пути', code: 'Siver CP-1', position: 'right'},
+   ]
+
 .service
   .wrapper
     .inner
-      h2.title.section-title Мы закроем полностью потребность в автосервисном оборудовании
-      .subtitle.subtitle-wa
-        p Hunter WA с датчиками HawkEye Elite
-        span Hunter QCD92
-      .subtitle.subtitle-check
-        p Hunter Quick Check Drive
-        span Hunter QCD92
-      .subtitle.subtitle-drive
-        p Hunter Quick Check Drive
-        span Hunter QCD92
+      h2.title.section-title Мы закроем полностью потребность в&nbsp;автосервисном оборудовании
+      .image.desktop
+        img(src="assets/img/2service/illustration.svg")
+        ul
+          each point in points
+            li.point-block
+              .point
+                .circle
+                .circle
+              .tip(class=point.position)
+                p.name !{point.name}
+                p.code !{point.code}
+      .image.mobile
+        img(src="assets/img/2service/illu-vertical.svg")
+        ul
+          each point in points
+            li.point-block
+              .point
+                .circle
+                .circle
+              .tip
+                p.name !{point.name}
+                p.code !{point.code}
+
+
+

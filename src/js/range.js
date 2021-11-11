@@ -8,9 +8,13 @@ export default function initRange() {
 
    const fakeRanges = document.querySelectorAll('.fake-range')
    fakeRanges.forEach(range => {
-      console.log(range)
-      console.log(range.dataset)
-      const {start, min, max, step, tooltip, postfix} = range.dataset
+      let {start, min, max, step, tooltip, pips, postfix} = range.dataset
+
+      console.log(pips)
+      console.log(typeof pips)
+      console.log([+min, +max])
+
+      pips = pips ? pips.split(',').map(pip => +pip) : [+min, +max]
 
       let uiSlider = noUiSlider.create(range, {
          start: +start,
@@ -27,7 +31,7 @@ export default function initRange() {
 
          pips: {
             mode: 'values',
-            values: [+min, +max],
+            values: pips,
             density: 4,
             format: wNumb({
                decimals: 0,
@@ -38,23 +42,17 @@ export default function initRange() {
       })
 
       const linkedInput = range.dataset.range ? document.querySelector(`input[data-input=${range.dataset.range}]`) : null
-      console.log(range.dataset)
 
       if (linkedInput) {
          linkedInput.addEventListener('change', (e) => {
             let value = e.target.value
-            // if (value < min) value = min
-            // else if (value > max) value = max
-
             const formattedValue = parseInt(value.replaceAll(" ", ""))
             uiSlider.set(formattedValue)
-            // realRange.setAttribute('value', value)
          })
       }
 
       uiSlider.on('update', (values) => {
          const realRange = range.parentElement.querySelector('.real-range')
-         console.log(realRange, parseInt(values[0]))
          realRange.setAttribute('value', parseInt(values[0]))
          realRange.value = values[0]
 
@@ -66,8 +64,6 @@ export default function initRange() {
             const value = format.to(+values[0])
             linkedInput.setAttribute('value', value)
             linkedInput.value = value
-
-
          }
       });
    })

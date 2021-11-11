@@ -9,7 +9,7 @@
       color: $red
   .content
     margin-bottom: 48px
-  .item
+  .item-content
     display: flex
     flex-direction: column
     justify-content: center
@@ -20,6 +20,7 @@
     display: flex
     justify-content: center
     align-items: center
+    cursor: pointer
   .item-title
     font-size: 26px
     line-height: 1.3
@@ -35,6 +36,7 @@
   .slick-dots
     display: flex
     justify-content: center
+    margin-top: 25px
     li
       width: 8px
       height: 8px
@@ -48,4 +50,25 @@
       &.slick-active
         background: $red
 
+@media (max-width: 992px)
+  .kits
+    .item-title
+      margin-top: 20px
+
+@media (max-width: 568px)
+  .kits
+    .item
+      padding: 20px
+      border: 1px solid $gray-border
+      border-radius: 12px
+
+@media (max-width: 480px)
+  .kits
+    .content
+      margin-bottom: 25px
+    .item-title
+      margin-top: 0
+      font-size: 20px
+    .item-subtitle
+      margin-top: 10px
 

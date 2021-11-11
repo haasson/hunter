@@ -13,12 +13,13 @@
         ul.list
           each kit, i in kitsList
              li.item
-                .images
-                  +picture({
-                     classList: 'image',
-                     src: `assets/img/3kits/kits-${i+1}.jpg`,
+                .item-content
+                  .images(data-modal="confirm" data-title="Получить комплекты с&nbsp;ценами")
+                    +picture({
+                       classList: 'image',
+                       src: `assets/img/3kits/kits-${i+1}.jpg`,
 
-                  })
-                h3.item-title !{kit.title}
-                p.item-subtitle !{kit.subtitle}
-      button.btn(data-modal="confirm" data-title="Получить комлпекты с ценами") Получить комлпекты с ценами
+                    })
+                  h3.item-title !{kit.title}
+                  p.item-subtitle !{kit.subtitle}
+      button.btn(data-modal="confirm" data-title="Получить комплекты с&nbsp;ценами") Получить комплекты с&nbsp;ценами

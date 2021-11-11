@@ -8,6 +8,7 @@ mixin btn(span1, span2, classList, link)
       +svg('arrow', 'btn-arrow')
 
 
+
 //- Add picture element
 mixin picture(data)
    - let {src, mobileFirst, lazy= true} = data
@@ -15,9 +16,13 @@ mixin picture(data)
       if (typeof src === 'string')
          - let [img, ext] = src.split('.')
          - let imgType = ext === 'jpg' ? `image/jpeg` : `image/${ext}`
-         source(type='image/webp' data-srcset=`${img}.webp` srcset=`${lazy ? '' : img + '.webp'}`)
+         - let webpSrc = `${img}.webp`
+         if (useRetina)
+            - src = `${img}@2x.${ext} 2x, ${img}.${ext} 1x`
+            - webpSrc = `${img}@2x.webp 2x, ${img}.webp 1x`
+         source(type='image/webp' data-srcset=webpSrc srcset=`${lazy ? '' : webpSrc}`)
          source(type=imgType data-srcset=src srcset=`${lazy ? '' : src}`)
-         img(class=`${lazy ? 'lazy' : ''}` data-src=src src=`${lazy ? '' : src}`)
+         img(class=`${lazy ? 'lazy' : ''}` data-src=`${img}.${ext}` src=`${lazy ? '' : img + '.' + ext}`)
       else
          each image, breakpoint in src
             - let [img, ext] = image.split('.')

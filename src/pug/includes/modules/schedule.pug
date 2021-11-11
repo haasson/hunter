@@ -1,34 +1,38 @@
 .schedule
   .wrapper
     .inner
-      h2.title.section-title Установите стенд схода-развала Hunter и заработайте от 1 623 700 рублей в первый год
-      .subtitle
-        .name
-          p.text Cредняя месячная прибыль
-          .dots
-          p.number 135 300 руб
-        .name
-          p.text.text-red Вложения окупаются <br> через 5 месяцев
-        .name
-          p.text Средний чек
-          .dots
-          p.number 1500 руб
-        .name
-          p.text Клиентов в месяц
-          .dots
-          p.number 135
-      .subtitle-mobile
-        .name
-          p.text.text-mobile Вложения окупаются <br> через 5 месяцев
-      +picture({
-         classList: 'images',
-         src: 'assets/img/5schedule/schedule.png',
+      h2.title.section-title Установите стенд схода&#8209;развала Hunter и&nbsp;заработайте от&nbsp;1&nbsp;623&nbsp;700 рублей в&nbsp;первый год
+      .content
+        .alert
+          h3 Получите подробный бизнес&#8209;план с&nbsp;расчетом прибыли для&nbsp;вашего города
+          button.btn(data-modal="confirm" data-title="Получить бизнес&#8209;план") Получить бизнес-план
+        .subtitle
+          .name
+            p.text Средняя месячная прибыль
+            .dots
+            p.number 135 300 руб
+          .name
+            p.text.text-red Вложения окупаются <br> через 5&nbsp;месяцев
+          .name
+            p.text Средний чек
+            .dots
+            p.number 1500 руб
+          .name
+            p.text Клиентов в&nbsp;месяц
+            .dots
+            p.number 135
+        .subtitle-mobile
+          .name
+            p.text.text-mobile Вложения окупаются <br> через 5&nbsp;месяцев
+        +picture({
+           classList: 'images',
+           src: 'assets/img/5schedule/schedule.png',
 
-      })
-      .markers
-        .marker
-          +svg('point', 'point')
-          p.text Чистая прибыль
-        .marker
-          +svg('point-blue', 'point')
-          p.text Выручка
+        })
+        .markers
+          .marker
+            +svg('point', 'point')
+            p.text Чистая прибыль
+          .marker
+            +svg('point-blue', 'point')
+            p.text Выручка

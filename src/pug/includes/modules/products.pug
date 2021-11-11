@@ -162,14 +162,19 @@
     },
     {
       title: 'Инфракрасный стенд развал-схождения',
-      text: '3-х точечная компенсация биений подъемом с непрерывной коррекцией по углу поворота колеса ProComp®',
+      text: '4 Оптических датчика с 4 CCD сенсорами схождения и 4 сенсорами развала/продольного наклона.',
       img: '',
       category: 'Инфракрасные стенды',
       label: 'WA',
       labelColor: 'blue',
       code: 'WA310/20LE-504',
-      price: 'от  руб.',
+      price: 'от 887 000 руб. руб.',
       list: [
+        'Датчики DSP504',
+        'Кабинет WA310E',
+        'Монитор LCD 20”',
+        'Принтер',
+        'Компьютер с ПО WinAlign Elite'
       ]
     },
     {
@@ -236,14 +241,21 @@
     },
     {
       title: 'Дилерский стенд развал-схождения',
-      text: '4 камеры, стандартное напольное исполнение, мишени высокого разрешения',
+      text: 'Дилерский стенд-развал схождения для СТО Mercedez-Benz',
       img: '',
       category: 'Для дилерских СТО',
       label: 'Mercedes-Benz',
       labelColor: 'blue',
       code: 'WA560VM/22LE-421FC5M',
-      price: 'от  руб.',
+      price: 'от 1 695 000 руб.',
       list: [
+        'Спецсерия OME',
+        '3D Стенд',
+        'Датчики Hawkeye HS421FС5MBE',
+        'Кабинет WA560VMBE',
+        'Монитор LCD 21.5”',
+        'Принтер',
+        'Компьютер с ПО WinAlign Mercedez-Benz'
       ]
     },
     {
@@ -367,24 +379,15 @@
     h2.title.section-title Основные продукты компании
     .inner
       ul.list
-        li.item.item-red(data-modal="confirm" data-title="Скачать методическое пособие" data-bg="assets/img/6products/bg.jpg")
+        li.item.item-red(data-modal="confirm" data-title="Скачать методическое пособие" data-action="Скачать" data-redirect="https://disk.yandex.ru/i/uqUWMmG6LNOxOg" data-bg="assets/img/6products/bg.jpg")
           h3.red-title Разобраться в стендах легко
         each product, i in productsList
           li.item
             p.category !{product.category}
-            h3.item-title !{product.title}
-            if(product.label)
-              span.label(class=product.labelColor) !{product.label}
+            h3.item-title(class=product.labelColor || false  data-label=product.label || false) !{product.title} !{' '}
             p.code !{product.code}
 
-            .img
-              +picture({
-                 classList: 'images',
-                 src: `assets/img/6products/${i + 1}.jpg`,
-
-              })
-            p.text !{product.text}
-            button.btn(
+            .img(
               data-modal="product"
               data-title=product.title
               data-text=product.text
@@ -392,7 +395,14 @@
               data-price=product.price
               data-list=product.list.join('@')
 
-            ) Узнать цену
+            )
+              +picture({
+                 classList: 'images',
+                 src: `assets/img/6products/${i + 1}.jpg`,
+
+              })
+            p.text !{product.text}
+            button.btn(data-modal="confirm" data-title="Узнать цену" data-action="Узнать" data-product=product.title) Узнать цену
     .all
       p.plus + Показать все продукты в категории
 

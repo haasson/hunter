@@ -10,23 +10,25 @@ export default function initForms() {
    }
 
    forms.forEach(form => {
-      console.log(form)
       new ValidateForm(form, {
          inputs: validateSettings,
          onSubmit: send
       })
    })
-   $("[type=tel]").mask("+7 999 999 9999", { autoclear: false });
+   $("[type=tel]").mask("+7 (999) 999-99-99", { autoclear: false });
 }
 
 function send(e) {
    console.log(e)
    let form = e.target
+   let redirect = form.dataset.redirect
    let formData = $(form).serialize()
-   regularAjax(formData)
+   regularAjax(formData, redirect)
 }
 
-function regularAjax(formData) {
+function regularAjax(formData, redirect) {
+   console.log(typeof redirect)
+   console.log(redirect)
    $.ajax({
       url: 'include/send.php',
       method: 'POST',
@@ -35,11 +37,13 @@ function regularAjax(formData) {
       success: function success(data) {
          console.log('success');
          $(".modal-bg").fadeOut(300);
-         $(".modal-ok").fadeIn(300);
-         console.log(data);
+         document.body.style.overflow = 'auto'
+
+         console.log(redirect)
+         if (redirect) window.open(redirect, '_blank').focus();
+         else $(".modal-ok").fadeIn(300);
       },
       error: function error(xhr) {
-         // window.open('http://google.com', '_blank').focus();
          alert('error - ' + xhr.status);
       },
       complete: function complete() {

@@ -35,7 +35,8 @@ function getMsg($inputs) {
 // и заменяю на более понятные текстовые строки
 function getRus($val) {
   switch ($val) {
-    case 'nameForm': return 'Имя формы';
+    case 'formName': return 'Имя формы';
+    case 'productName': return 'Продукт';
     case 'phone': return 'Телефон';
     case 'leasing-sum': return 'Сумма лизинга';
     case 'leasing-equipment': return 'Для какого оборудования нужен лизинг';

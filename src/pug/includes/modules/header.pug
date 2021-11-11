@@ -29,13 +29,13 @@ header.header
          })
       .menu.j-menu
          .info.mobile
-            button.btn.btn-whatsapp.btn_with-icon(data-modal="confirm" data-title="Получить полный каталог с ценами")
+            button.btn.btn-whatsapp.btn_with-icon(data-modal="confirm" data-title="Получить полный каталог с&nbsp;ценами" data-redirect="https://www.hunter-company.ru/catalog.pdf")
                +picture({
                   classList: 'whatsapp',
                   src: 'assets/img/commons/whatsapp.png',
                   lazy: false
                })
-               p.text Получить полный каталог с ценами на Whatsapp
+               p.text Получить полный каталог с&nbsp;ценами на Whatsapp
             .contact
                a.phone(href="tel:+78006004227") +7 (800) 600–42–27
                a.phone.small(href="tel:+74950000000") +7 (495) 000–00–00
@@ -45,25 +45,26 @@ header.header
             each item in menuItems
                li.menu-item(data-link=to)
                   a.menu-link(href="#" data-scroll=item.datascroll) !{item.title}
-      button.catalog-btn.btn(data-modal="confirm" data-title="Получить полный каталог с ценами") Получить полный каталог
+      button.catalog-btn.btn(data-modal="confirm" data-title="Получить полный каталог с&nbsp;ценами" data-redirect="https://www.hunter-company.ru/catalog.pdf") Получить полный каталог
       .burger.j-burger
          div
    .hero
       .wrapper
-         h2.title.section-title Стенды сход-развала Hunter от официального поставщика с доставкой и сервисом по всей России
+         h2.title.section-title Стенды сход-развала Hunter от&nbsp;официального поставщика с&nbsp;доставкой и&nbsp;сервисом по&nbsp;всей России
          +picture({
             classList: 'stand',
             src: 'assets/img/1header/stand.png',
             lazy: false
          })
-         button.btn.btn_black.btn_with-icon.btn-letter(data-modal="confirm" data-title="Получить полный каталог с ценами")
+         button.btn.btn_black.btn_with-icon.btn-letter(data-modal="confirm" data-title="Получить полный каталог с&nbsp;ценами" data-redirect="https://www.hunter-company.ru/catalog.pdf")
             +picture({
                classList: 'letter',
                src: 'assets/img/1header/h-letter.png',
                lazy: false
             })
-            p.text Получить полный каталог с ценами на Whatsapp
-         form#form-header.form
+            p.text Получить полный каталог с&nbsp;ценами на&nbsp;Whatsapp
+         form#form-header.form(data-redirect="https://www.hunter-company.ru/catalog.pdf")
+            input(type="hidden" name="formName" value="Получить полный каталог с ценами на Whatsapp")
             input.input.input-black.validate-input(type="tel" placeholder="Ваш номер телефона" name="phone")
             button.btn.btn-whatsapp.btn_with-icon(type="submit")
                +picture({
@@ -71,7 +72,7 @@ header.header
                   src: 'assets/img/commons/whatsapp.png',
                   lazy: false
                })
-               p.text Получить полный каталог с ценами на Whatsapp
+               p.text Получить полный каталог с&nbsp;ценами на&nbsp;Whatsapp
 
 
 

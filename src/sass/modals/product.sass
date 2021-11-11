@@ -3,14 +3,15 @@
     max-width: 1120px
 
   .content
-    position: relative
-  .info
-    padding-left: 45%
+    display: flex
   .img
-    position: absolute
-    left: 0
-    top: 0
-    width: calc(40% - 30px)
+    flex-grow: 1
+    margin-right: 30px
+    &.mobile
+      display: none
+  .info
+    max-width: 510px
+
   .title
     font-size: 26px
     font-weight: 600
@@ -47,35 +48,57 @@
     display: flex
     justify-content: space-between
     align-items: flex-start
-    padding-left: 50%
   .input
     margin-right: 10px
   .btn
-    flex-shrink: 0
+    white-space: nowrap
 
-@media (max-width: 1080px)
+@media (max-width: 992px)
   .modal-product
-    .tel
-      margin-left: auto
-      padding-left: 0
-      max-width: 500px
+    .info
+      max-width: 465px
+    .title
+      margin-bottom: 20px
+      font-size: 24px
+    .suptitle
+      margin-bottom: 20px
+      font-size: 16px
+    .list
+      font-size: 15px
+
+
 
 @media (max-width: 768px)
   .modal-product
+    .content
+      justify-content: center
     .info
-      padding-left: 0
+      max-width: 100%
+      width: 100%
+      text-align: center
     .title
+      margin-bottom: 25px
+      padding: 0 20px
       font-size: 22px
+    .suptitle
+      max-width: 380px
+      margin: 0 auto 15px
+      font-size: 14px
     .list
       display: none
     .img
-      position: static
+      margin-right: 0
+      &.mobile
+        display: block
+      &.desktop
+        display: none
       img
         width: 50%
         max-width: 220px
         margin: 0 auto 20px
     .tel
       margin: 0 auto
+      align-self: stretch
 
 @media (max-width: 568px)
   .modal-product
@@ -92,6 +115,7 @@
     .input
       margin-bottom: 15px
     .btn
+      width: 100%
       padding-left: 20px
       padding-right: 20px
 

@@ -4,6 +4,8 @@
     position: relative
     padding: 58px 54px 75px
     background: $red no-repeat right bottom
+    background-size: contain
+    background-position-y: 115px
     border-radius: 6px
   .title
     max-width: 880px
@@ -54,8 +56,8 @@
       margin-bottom: 24px
     .inner
       padding: 32px 15px 310px
-      background-position: center bottom
-      background-size: 540px
+      background-position: calc(50% - 20px) calc(100% + 150px)
+      background-size: 500px
       position: relative
     .list
       max-width: 100%
@@ -79,8 +81,9 @@
 @media (max-width: 480px)
   .tradein
     .inner
-      padding-bottom: 205px
-      background-size: 410px
+      padding-bottom: 260px
+      background-position: calc(50% - 20px) calc(100% + 50px)
+      background-size: 350px
     .text
       font-size: 14px
       font-weight: 400

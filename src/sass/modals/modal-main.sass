@@ -1,11 +1,13 @@
 .modal-bg
+  justify-content: center
+  align-items: center
   width: 100%
   height: 100%
   position: fixed
   top: 0
   left: 0
   z-index: 999
-  background-color: rgba(70, 64, 170, 0.27058823529411763)
+  background-color: rgba($red, .9)
   box-sizing: border-box
   display: none
 
@@ -14,8 +16,9 @@
   max-width: 560px
   width: calc(100% - 40px)
   max-height: 85vh
-  margin: 10vh auto 0
+  margin: 50vh auto
   padding: 50px 53px 48px 48px
+  transform: translateY(-50%)
   box-sizing: border-box
   overflow-y: auto
 
@@ -23,8 +26,8 @@
 
   .close
     position: absolute
-    right: 10px
-    top: 10px
+    right: 21px
+    top: 24px
     z-index: 1
     width: 15px
     height: 15px
@@ -32,11 +35,14 @@
   .modal-close
     width: 15px
     height: 15px
-    fill: $gray
+    fill: rgba(#000, .2)
 
 @media (max-width: 768px)
   .modal-content
     padding: 22px
+    .close
+      right: 18px
+      top: 21px
 
 
 @import "confirm"

@@ -44,33 +44,39 @@
     font-size: 14px
     margin-bottom: 7px
   .item-title
+    position: relative
     font-size: 26px
     font-weight: 600
     line-height: 1.2
-    margin-bottom: 7px
+    margin-bottom: 12px
     letter-spacing: -0.16px
-  .label
-    align-self: flex-start
-    margin-bottom: 10px
-    padding: 8px 10px
-    border-radius: 3px
-    color: $white
-    line-height: 1
-    &.red
+    &:after
+      position: relative
+      top: -1px
+      content: attr(data-label)
+      padding: 7px 10px
+      border-radius: 3px
+      color: $white
+      line-height: 1
+      font-size: 16px
+      font-weight: 400
+      white-space: nowrap
+    &.red:after
       background: $red
-    &.blue
+    &.blue:after
       background: $blue
+
   .code
     color: $gray
     letter-spacing: -0.9px
     margin-bottom: 15px
   .img
-    //min-height: 233px
     display: flex
     justify-content: center
     align-items: center
     margin: auto
     padding: 15px 0
+    cursor: pointer
   .text
     color: $light-gray
     line-height: 1.4
@@ -89,7 +95,7 @@
     padding: 36px 0
     background: linear-gradient(180deg, rgba(208,203,203,0) 20%, rgba(225,225,225,0.062) 41%, rgba(225,225,225,0.765) 100%)
     text-align: center
-    border-bottom: 1px solid $gray-border
+    border-bottom: 2px solid #e1e1e1
     cursor: pointer
   .plus
     display: inline-block

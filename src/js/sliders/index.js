@@ -19,7 +19,7 @@ export default function initSliders() {
             }
          },
          {
-            breakpoint: 600,
+            breakpoint: 568,
             settings: {
                slidesToShow: 1
             }

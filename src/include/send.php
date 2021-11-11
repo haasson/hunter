@@ -23,7 +23,8 @@ try {
 
       // массив со списком имен полей, в данном случае для моего последнего проекта
       $inputs = CheckValue(array(
-        'nameForm',
+        'formName',
+        'productName',
         'phone',
         'leasing-sum',
         'leasing-equipment',
@@ -41,10 +42,12 @@ try {
     $mail->IsMail();
     $mail->CharSet = "UTF-8";
     $mail->From = 'haasson22@yandex.ru';
+    $mail->From = 'Noreply@technovector7.ru';
     $mail->FromName = 'Заявка с сайта';
     // Получатель письма
 
     $mail->addAddress('haasson22@gmail.com');
+    $mail->addAddress('Zayavka@technovector7.ru');
 
     // Прикрипление файлов к письму
     if (!empty($file['name'][0])) {

@@ -72,15 +72,17 @@ export default function lazyLoading() {
       return () => {
          let url = ''
          let images = block.dataset.bg.split(',')
+         let isRetina = window.devicePixelRatio > 1
 
          images.forEach(image => {
             let src
+            let [fileName, ext] = image.split('.')
+            if (isRetina) fileName += '@2x'
+            console.log(fileName)
             if (canUseWebp() || firefoxVer >= 65) {
-               let pointPos = image.lastIndexOf('.')
-               let fileName = image.slice(0, pointPos)
                src = fileName + '.webp'
             } else {
-               src = image
+               src = `${fileName}.${ext}`
             }
             url += `url(${src}), `
          })
