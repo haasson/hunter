@@ -38,7 +38,6 @@ export default function lazyLoading() {
       }
    }
    let images = document.querySelectorAll('picture.lazy')
-   console.log(images)
    images.forEach(img => {
       boundary.watch(img, lazyPicture(img))
    })
@@ -61,7 +60,6 @@ export default function lazyLoading() {
    let firefoxVer = isFirefox ? parseInt(isFirefox[1]) : 0;
    // Получаем все элементы с дата-атрибутом data-bg
    let blocks = document.querySelectorAll('[data-bg]');
-   console.log(blocks)
    // Проходимся по каждому
    if (blocks) {
       blocks.forEach(block => {
@@ -78,7 +76,6 @@ export default function lazyLoading() {
             let src
             let [fileName, ext] = image.split('.')
             if (isRetina) fileName += '@2x'
-            console.log(fileName)
             if (canUseWebp() || firefoxVer >= 65) {
                src = fileName + '.webp'
             } else {
@@ -86,7 +83,6 @@ export default function lazyLoading() {
             }
             url += `url(${src}), `
          })
-         console.log(url.slice(0, -2))
 
          block.style.backgroundImage = url.slice(0, -2)
       }

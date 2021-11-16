@@ -18,13 +18,11 @@ export default class ValidateForm {
       for (const item in this.inputs) {
          let obj = this.inputs[item]
          let inputs = this.form.querySelectorAll(`input[type=${obj.type}].validate-input`)
-         console.log(obj.type)
 
          inputs.forEach(input => {
             let inputParent = input.closest('.validate-field') || input
 
             input.addEventListener('focus', () => {
-               console.log('here', inputParent)
                inputParent.classList.remove('validate-error')
             })
 

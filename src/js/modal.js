@@ -31,6 +31,7 @@ export default function initModals() {
       if (this.dataset.modal === 'product') {
          let {title, text, img, list, price} = this.dataset
          modal.querySelector('.suptitle').innerHTML = text
+         modal.querySelector('.title').innerHTML = title
          img && setLazyUrl(modalEl, img)
          list && renderList(modalEl, list)
          modal.querySelector('.price').innerHTML = price

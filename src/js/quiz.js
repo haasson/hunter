@@ -15,7 +15,6 @@ export default class Quiz {
       this.finalBlock = this.quiz.querySelector('.q-final')
       // Progress
       this.progressSteps = [...this.quiz.querySelector('.q-progress-steps').children]
-      console.log(this.progressSteps)
       this.progressBar = this.quiz.querySelector('.q-progress-bar')
       // Counter
       this.countCurrent = this.quiz.querySelector('.q-current-count')
@@ -63,7 +62,6 @@ export default class Quiz {
    }
 
    clickBtn(btnType) {
-      console.log(btnType)
       if(btnType === 'prev') {
          this.setStep(this.step - 1)
       } else {
@@ -159,7 +157,6 @@ export default class Quiz {
    }
 
    actualizeProgressSteps() {
-      console.log(this.progressSteps, this.step)
       this.progressSteps.forEach((item, i) => {
          item.classList.remove('done', 'current')
          if (i < this.step) {

@@ -10,10 +10,6 @@ export default function initRange() {
    fakeRanges.forEach(range => {
       let {start, min, max, step, tooltip, pips, postfix} = range.dataset
 
-      console.log(pips)
-      console.log(typeof pips)
-      console.log([+min, +max])
-
       pips = pips ? pips.split(',').map(pip => +pip) : [+min, +max]
 
       let uiSlider = noUiSlider.create(range, {

@@ -19,7 +19,6 @@ export default function initForms() {
 }
 
 function send(e) {
-   console.log(e)
    let form = e.target
    let redirect = form.dataset.redirect
    let formData = $(form).serialize()
@@ -27,8 +26,6 @@ function send(e) {
 }
 
 function regularAjax(formData, redirect) {
-   console.log(typeof redirect)
-   console.log(redirect)
    $.ajax({
       url: 'include/send.php',
       method: 'POST',
@@ -39,7 +36,6 @@ function regularAjax(formData, redirect) {
          $(".modal-bg").fadeOut(300);
          document.body.style.overflow = 'auto'
 
-         console.log(redirect)
          if (redirect) window.open(redirect, '_blank').focus();
          else $(".modal-ok").fadeIn(300);
       },
